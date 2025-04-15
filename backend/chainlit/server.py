@@ -203,10 +203,7 @@ app = FastAPI(lifespan=lifespan)
 
 sio = socketio.AsyncServer(cors_allowed_origins=[], async_mode="asgi")
 
-asgi_app = socketio.ASGIApp(
-    socketio_server=sio,
-    socketio_path="",
-)
+asgi_app = socketio.ASGIApp(socketio_server=sio, socketio_path="")
 
 # config.run.root_path is only set when started with --root-path. Not on submounts.
 app.mount(f"{config.run.root_path}/ws/socket.io", asgi_app)
@@ -363,12 +360,10 @@ def get_html_template(root_path):
 
     css = None
     if config.ui.custom_css:
-        css = (
-            f"""<link rel="stylesheet" type="text/css" href="{config.ui.custom_css}">"""
-        )
+        css = f"""<link rel="stylesheet" type="text/css" href="{config.ui.custom_css}" {config.ui.custom_css_attributes}>"""
 
     if config.ui.custom_js:
-        js += f"""<script src="{config.ui.custom_js}" defer></script>"""
+        js += f"""<script src="{config.ui.custom_js}" {config.ui.custom_js_attributes}></script>"""
 
     font = None
     if custom_theme and custom_theme.get("custom_fonts"):
@@ -719,6 +714,25 @@ async def get_user(current_user: UserParam) -> GenericUser:
 _language_pattern = (
     "^[a-zA-Z]{2,3}(-[a-zA-Z0-9]{2,3})?(-[a-zA-Z0-9]{2,8})?(-x-[a-zA-Z0-9]{1,8})?$"
 )
+
+
+@router.post("/set-session-cookie")
+async def set_session_cookie(request: Request, response: Response):
+    body = await request.json()
+    session_id = body.get("session_id")
+
+    is_local = request.client and request.client.host in ["127.0.0.1", "localhost"]
+
+    response.set_cookie(
+        key="X-Chainlit-Session-id",
+        value=session_id,
+        path="/",
+        httponly=True,
+        secure=not is_local,
+        samesite="lax" if is_local else "none",
+    )
+
+    return {"message": "Session cookie set"}
 
 
 @router.get("/project/translations")
