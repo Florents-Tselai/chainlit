@@ -2,10 +2,7 @@ import { Translator } from 'components/i18n';
 
 export default function WaterMark() {
   return (
-    <a
-      href="https://tsel.ai"
-      target="_blank"
-      rel="noopener noreferrer"
+    <div
       className="watermark"
       style={{
         display: 'flex',
@@ -13,9 +10,14 @@ export default function WaterMark() {
         textDecoration: 'none'
       }}
     >
-      <div className="text-xs text-muted-foreground">
+      <a
+        href="https://tsel.ai"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-xs text-muted-foreground"
+      >
         <Translator path="chat.watermark" />
-      </div>
+      </a>
       <a
         href="https://tsel.ai"
         target="_blank"
@@ -24,6 +26,14 @@ export default function WaterMark() {
       >
         tsel.ai
       </a>
-    </a>
+      <a
+        href="https://docs.google.com/forms/d/e/1FAIpQLSecAKRmFp20oj15z7iD_eLMYePi4s_bNbnWlVUeZw83x59o1Q/viewform"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="ml-3 text-xs text-muted-foreground"
+      >
+        Επικοινωνία
+      </a>
+    </div>
   );
 }
