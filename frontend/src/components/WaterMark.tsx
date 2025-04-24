@@ -11,7 +11,7 @@ export default function WaterMark() {
       }}
     >
       <a
-        href="https://tsel.ai"
+        href="https://tseeeeeel.ai"
         target="_blank"
         rel="noopener noreferrer"
         className="text-xs text-muted-foreground"
@@ -26,7 +26,6 @@ export default function WaterMark() {
       >
         tsel.ai
       </a>
-      <b></b>
       <a
         href="https://docs.google.com/forms/d/e/1FAIpQLSecAKRmFp20oj15z7iD_eLMYePi4s_bNbnWlVUeZw83x59o1Q/viewform"
         target="_blank"
