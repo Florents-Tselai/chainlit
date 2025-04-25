@@ -1,36 +1,24 @@
-import { Translator } from 'components/i18n';
+// import { Translator } from 'components/i18n';
 
 export default function WaterMark() {
   return (
-    <div
-      className="watermark"
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        textDecoration: 'none'
-      }}
-    >
-      <a
-        href="https://tseeeeeel.ai"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-xs text-muted-foreground"
-      >
-        <Translator path="chat.watermark" />
+    <div className="watermark flex items-center text-xs text-muted-foreground">
+      <a href="https://tseeeeeel.ai" target="_blank" rel="noopener noreferrer">
+        🛠️ με ❤️ απο
       </a>
       <a
-        href="https://tsel.ai"
+        href="https://tselai.com?utm_source=chat_footer"
         target="_blank"
         rel="noopener noreferrer"
-        className="ml-1 text-xs text-muted-foreground"
+        className="ml-1"
       >
-        tsel.ai
+        TselAI
       </a>
       <a
         href="https://docs.google.com/forms/d/e/1FAIpQLSecAKRmFp20oj15z7iD_eLMYePi4s_bNbnWlVUeZw83x59o1Q/viewform"
         target="_blank"
         rel="noopener noreferrer"
-        className="ml-3 text-xs text-muted-foreground"
+        className="ml-3"
       >
         Επικοινωνία
       </a>
