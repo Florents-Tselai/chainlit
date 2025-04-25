@@ -3,9 +3,7 @@
 export default function WaterMark() {
   return (
     <div className="watermark flex items-center text-xs text-muted-foreground">
-      <a href="https://tseeeeeel.ai" target="_blank" rel="noopener noreferrer">
-        🛠️ με ❤️ απο
-      </a>
+      <a>🛠️ με ❤️ απο</a>
       <a
         href="https://tselai.com?utm_source=chat_footer"
         target="_blank"
