@@ -5,7 +5,7 @@ export default function WaterMark() {
     <div className="watermark flex items-center text-xs text-muted-foreground">
       <a>🛠️ με ❤️ απο</a>
       <a
-        href="https://tselai.com?utm_source=chat_footer"
+        href="https://tselai.com/about?utm_source=chat_footer"
         target="_blank"
         rel="noopener noreferrer"
         className="ml-1"
